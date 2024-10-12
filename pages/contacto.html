@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoneblocks - Contacto</title>
+</head>
+<body>
+    <header>
+        <img src="../images/logo.png" alt="Phoneblocks"> 
+        <h1>Phoneblocks</h1>
+        <h2>Contacto</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form action="https://formspree.io/f/xnnqqjav" method="POST">
+            <fieldset>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>
+                <br><br>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" name="email" id="email" placeholder="Ingresá tu dirección de mail" required>
+                <br><br>
+                <label for="mensaje">Mensaje:</label>
+                <br>
+                <textarea name="mensaje" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
+                <br><br>
+                <button type="submit">Enviar</button>
+            </fieldset>
+        </form>
+    </main>
+    <footer>&copy; 2024 Gastón Kreuzberger (<a href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados</footer>
+</body>
+</html>
