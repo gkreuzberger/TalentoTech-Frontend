@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phoneblocks - Contacto</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Code from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Contacto | Sky: Niños de la Luz</title>
 </head>
 <body>
     <header>
-        <img src="../images/logo.png" alt="Phoneblocks"> 
-        <h1>Phoneblocks</h1>
-        <h2>Contacto</h2>
+        <img src="../img/logo.png" alt="Sky logo"> 
+        <h1 class="lato-regular-italic"><a href="../index.html">Sky: Niños de la Luz</a></h1>
+        <nav>
+            <ul class="nav-list lato-regular">
+                <li><a href="reinos.html">Reinos</a></li>
+                <li><a href="reseñas.html">Reseñas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
     <main>
-        <form action="https://formspree.io/f/xnnqqjav" method="POST">
-            <fieldset>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>
-                <br><br>
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" name="email" id="email" placeholder="Ingresá tu dirección de mail" required>
-                <br><br>
-                <label for="mensaje">Mensaje:</label>
-                <br>
-                <textarea name="mensaje" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
-                <br><br>
-                <button type="submit">Enviar</button>
-            </fieldset>
-        </form>
+        <h2 class="lato-light ribbon-gradient">Contacto</h2>
+        <div class="contenedor-form">
+            <form action="https://formspree.io/f/xnnqqjav" method="POST">
+                <fieldset class="lato-light">
+                    <div class="row">
+                        <div class="col25">
+                            <label for="nombre">Nombre:</label>
+                        </div>
+                        <div class="col75">
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25">
+                            <label for="email">Correo Electrónico:</label>
+                        </div>
+                        <div class="col75">
+                            <input type="email" name="email" id="email" placeholder="Ingresá tu dirección de mail" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25">
+                            <label for="mensaje">Mensaje:</label>
+                        </div>
+                        <div class="col75">
+                            <textarea name="mensaje" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </main>
     <footer>&copy; 2024 Gastón Kreuzberger (<a href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados</footer>
 </body>

@@ -3,24 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Code from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e177dc3a64.js" crossorigin="anonymous"></script>
+    <title>Sky - Inicio</title>
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Phoneblocks"> 
-        <h1>Phoneblocks</h1>
-        <h2>Inicio</h2>
+        <img src="img/logo.png" alt="Sky logo"> 
+        <h1 class="lato-regular-italic"><a href="index.html">Sky: Niños de la Luz</a></h1>
+        <nav>
+            <ul class="nav-list lato-regular">
+                <li><a href="pages/reinos.html">Reinos</a></li>
+                <li><a href="pages/reseñas.html">Reseñas</a></li>
+                <li><a href="pages/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="pages/productos.html">Productos</a></li>
-            <li><a href="pages/contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
     <main>
-        <img src="images/phoneblocks.jpg" alt="Componentes para smartphones modulares">
-        <p>Lorem ipsum <strong>dolor sit amet consectetur</strong> adipisicing elit. Mollitia <s>temporibus</s> modi laboriosam magnam illo nemo quisquam voluptatum ducimus doloremque, dicta quasi obcaecati illum quaerat, eos non. <em>Ipsa sunt esse quis?</em></p>
+        <div class="contenedor">
+            <p class="lato-regular"><strong>Sky: Niños de la Luz</strong> (en chino, <strong>Sky光·遇</strong>; pinyin, <strong>Sky Guāng·yù</strong>) (acortado como <strong>Sky</strong>) es un videojuego indie social de mundo abierto desarrollado y lanzado por <strong>Thatgamecompany</strong>. Su primer lanzamiento fue en iOS el 18 de julio de 2019, la versión de Android fue lanzada más tarde el 7 de abril del 2020, la versión para la Nintendo Switch el 29 de junio de 2021, y la versión para PlayStation 4 y 5 durante el 6 de diciembre de 2022. Se anunció la versión para Steam para el 10 de abril de 2024. Una versión beta ha estado disponible desde el lanzamiento, y es actualmente usada por los jugadores para dar feedback a los desarrolladores antes de implementar una nueva actualización en el juego oficial.</p>
+        </div>
+        <div class="contenedor-iframe-16-9">
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/rLOesNZTtqo" title="PC Launch Cinematic Trailer" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <article class="contenedor-iconos">
+            <h3 class="lato-light">Disponible en las siguientes plataformas</h3>
+            <div class="iconos">
+                <i class="fa-brands fa-steam fa-5x" alt="Steam" style="color:#1a2fa3"></i>
+                <i class="fa-brands fa-apple fa-5x" alt="iOS" style="color:#6a6b72"></i>
+                <i class="fa-brands fa-android fa-5x" alt="Android" style="color:#34b124"></i>
+                <i class="fa-brands fa-playstation fa-5x" alt="PlayStation"></i>
+                <img src="img/Switch_Icon.png" alt="Nintendo Switch" width="5rem">
+            </div>
+        </article>
     </main>
     <footer>&copy; 2024 Gastón Kreuzberger (<a href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados</footer>
 </body>
