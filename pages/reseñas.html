@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <!-- Code from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,24 +11,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Reseñas | Sky: Niños de la Luz</title>
 </head>
-<body>
+<body class="mx-2 my-2">
     <header>
         <img src="../img/logo.png" alt="Sky logo"> 
         <h1 class="lato-regular-italic"><a href="../index.html">Sky: Niños de la Luz</a></h1>
         <nav>
-            <ul class="nav-list lato-regular">
+            <ul class="mb-0 nav-list lato-regular">
                 <li><a href="reinos.html">Reinos</a></li>
                 <li><a href="reseñas.html">Reseñas</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2 class="lato-light ribbon-gradient">Reseñas</h2>
+        <h2 class="my-4 lato-light ribbon-gradient">Reseñas</h2>
         
-        <div class="contenedor-grid tres-columnas">
+        <div class="contenedor-grid tres-columnas-reseñas">
             <article class="reseña-grid">
-                <div class="titulo-reseña lato-thin">
+                <div class="titulo-interno lato-thin">
                     <h3>Reseña 1</h3>
                 </div>
                 <p class="lato-regular">
@@ -35,7 +37,7 @@
                 </p>
             </article>
             <article class="reseña-grid">
-                <div class="titulo-reseña lato-thin">
+                <div class="titulo-interno lato-thin">
                     <h3>Reseña 2</h3>
                 </div>
                 <p class="lato-regular">
@@ -43,7 +45,7 @@
                 </p>
             </article>
             <article class="reseña-grid">
-                <div class="titulo-reseña lato-thin">
+                <div class="titulo-interno lato-thin">
                     <h3>Reseña 3</h3>
                 </div>
                 <p class="lato-regular">
@@ -53,7 +55,7 @@
         </div>
 
         <div class="contenedor-form">
-            <form action="https://formspree.io/f/xbljyvvr" method="POST">
+            <form action="https://formspree.io/f/xnnqqjav" method="POST">
                 <fieldset class="lato-light">
                     <div class="row">
                         <div class="col25">
@@ -76,7 +78,7 @@
                             <label for="reseña">Reseña:</label>
                         </div>
                         <div class="col75">
-                            <textarea name="reseña" id="reseña" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
+                            <textarea name="reseña" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -85,6 +87,7 @@
                 </fieldset>
             </form>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </main>
     <footer>&copy; 2024 Gastón Kreuzberger (<a href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados</footer>
 </body>
