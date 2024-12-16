@@ -1,22 +1,76 @@
    // Configuración de productos con stock y descuentos
    const productos = {
-    laptop: { 
-        nombre: 'Laptop', 
-        precio: 800, 
+    atuendo: { 
+        nombre: 'Atuendo: Básico', 
+        precio: 5, 
         stock: 10,
-        descuento: 0.1  // 10% de descuento
+        descuento: 0.25  // 25% de descuento
     },
-    smartphone: { 
-        nombre: 'Smartphone', 
-        precio: 500, 
+    zapatos: { 
+        nombre: 'Zapatos: Básicos', 
+        precio: 3, 
         stock: 15,
-        descuento: 0.05  // 5% de descuento
+        descuento: 0.15  // 15% de descuento
     },
-    tablet: { 
-        nombre: 'Tablet', 
-        precio: 300, 
-        stock: 8,
+    mascara: { 
+        nombre: 'Máscara: Neutral', 
+        precio: 1.5, 
+        stock: 12,
         descuento: 0  // Sin descuento
+    },
+    lentes: {
+        nombre: 'Lentes de Sol',
+        precio: 1.25,
+        stock: 15,
+        descuento: 0.1,
+    },
+    collar: {
+        nombre: 'Collar: Moño',
+        precio: 1.15,
+        stock: 10,
+        descuento: 0,
+    },
+    peinado: {
+        nombre: 'Peinado: Trenza Lateral',
+        precio: 2,
+        stock: 8,
+        descuento: 0.2,
+    },
+    sombrero: {
+        nombre: 'Sombrero',
+        precio: 2.5,
+        stock: 13,
+        descuento: 0.2,
+    },
+    vincha: {
+        nombre: 'Vincha: Cuernitos',
+        precio: 1.15,
+        stock: 12,
+        descuento: 0,
+    },
+    capa: {
+        nombre: 'Capa: Básica',
+        precio: 3.5,
+        stock: 20,
+        descuento: 0.15,
+    },
+    instrumento: {
+        nombre: 'Instrumento: Lira',
+        precio: 4,
+        stock: 14,
+        descuento: 0.35,
+    },
+    biblioteca: {
+        nombre: 'Mueble: Biblioteca',
+        precio: 5,
+        stock: 11,
+        descuento: 0.3,
+    },
+    taza: {
+        nombre: 'Taza de Porcelana',
+        precio: 1.5,
+        stock: 13,
+        descuento: 0,
     }
 };
 
@@ -181,6 +235,9 @@ function mostrarCheckout() {
 function realizarCompra() {
     // Simular compra
     alert('¡Compra realizada con éxito!');
+
+    // Actualizar stock en el catálogo (LocalStorage)
+    actualizarStock();
     
     // Vaciar carrito
     localStorage.removeItem('carrito');
@@ -192,7 +249,106 @@ function realizarCompra() {
     renderizarCarrito();
 }
 
+function actualizarStock() {
+    // Cargar catálogo desde LocalStorage
+    const catalogoActualizado = JSON.parse(localStorage.getItem('catalogo'));
+    const clavesProducto = Object.keys(catalogoActualizado);
+
+    // Comprobar el stock de cada producto y actualizar el catálogo si hay 
+    // diferencias con el stock de la tienda
+    clavesProducto.forEach(item => {
+        const clave = item;
+        const stockActualizado = parseInt(document.getElementById(`stock-${clave}`).textContent);
+        if(stockActualizado !== parseInt(catalogoActualizado[clave]['stock'])) {
+            console.log(`Stock de ${clave} actualizado: ${stockActualizado} unidades.`);
+            catalogoActualizado[clave]['stock'] = stockActualizado;
+        };
+        
+    });
+
+    // Guardar el catálogo actualizado en LocalStorage
+    localStorage.setItem('catalogo', JSON.stringify(catalogoActualizado));
+}
+
 function cerrarCheckout() {
     const modal = document.getElementById('checkout-modal');
     modal.style.display = 'none';
+}
+
+// Revisar si la lista de productos existe en LocalStorage. Si no existe se 
+// copia la lista de productos definida en el script
+function comprobarCatalogo() {
+    if(localStorage.getItem('catalogo') == null) {
+        localStorage.setItem('catalogo', JSON.stringify(productos));
+    };
+    renderizarTienda();
+}
+
+// Generar los elementos de la tienda a partir del listado de productos
+function renderizarTienda() {
+    // Recuperar la lista de productos desde LocalStorage y darle formato
+    const contenedorTienda = document.getElementById('productos');
+    const catalogo = JSON.parse(localStorage.getItem('catalogo'));
+    const listaProductos = Object.values(catalogo); // Lista iterable de productos
+    const clavesProducto = Object.keys(catalogo); // Lista de claves de producto
+
+    // Generar cada producto a partir de las listas creadas
+    listaProductos.forEach((producto, index) => {
+        const productoID = clavesProducto[index];
+        const productoNombre = producto.nombre;
+        const productoStock = producto.stock;
+        const productoPrecio = producto.precio;
+
+        // Crear div para el producto
+        const divProducto = document.createElement('div');
+        divProducto.setAttribute('class', 'p-2 producto');
+
+        // Crear contenido del div, se tiene que editar para que se ajuste al 
+        // estilo de la página
+        divProducto.innerHTML = `
+        <img src="../img/icono-${productoID}.png" height="80px" width="80px" alt="${productoNombre}">
+        <span>${productoNombre} - $${productoPrecio}</span>
+        <span>Stock: <span id="stock-${productoID}">${productoStock}</span></span>
+        <button onclick="agregarAlCarrito('${productoNombre}', ${productoStock}, '${productoID}')">Agregar</button>
+        `;
+
+        // Renderizar producto
+        contenedorTienda.appendChild(divProducto);
+    });
+
+    finalizarCarga()
+}
+
+function finalizarCarga() {
+    const spinner = document.getElementById('spinner-tienda');
+    spinner.classList.add('d-none');
+}
+
+// Verificador del formulario de contacto
+function validarFormulario() {
+    let camposFaltantes = [] // Guarda los nombres de los campos incompletos
+    for(const [campo, contenido] of Object.entries(obtenerCampos())) {
+        if(contenido == '') {
+            camposFaltantes.push(campo);
+            console.log("Campo incompleto: " + campo);
+        }
+    };
+    if(camposFaltantes.length > 0) {
+        // Muestra una alerta con los campos faltantes
+        alert('Faltan completar los siguientes campos:\n' + camposFaltantes.map(etiqueta => `· ${etiqueta}`).join('\n'))
+    }
+}
+
+// Obtener los campos del formulario. La función devuelve un objeto con los 
+// nombres y el contenido de cada campo.
+function obtenerCampos() {
+    let campos = {
+        Nombre: '',
+        Email: '',
+        Mensaje: ''
+    };
+    campos.Nombre = document.getElementById('nombre').value;
+    campos.Email = document.getElementById('email').value;
+    campos.Mensaje = document.getElementById('mensaje').value;
+    return campos;
 }
