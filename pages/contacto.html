@@ -13,16 +13,29 @@
 </head>
 <body class="mx-2 my-2">
     <header>
-        <img src="../img/logo.png" alt="Sky logo"> 
-        <h1 class="lato-regular-italic"><a href="../index.html">Sky: Niños de la Luz</a></h1>
-        <nav>
-            <ul class="mb-0 nav-list lato-regular">
-                <li><a href="reinos.html">Reinos</a></li>
-                <li><a href="reseñas.html">Reseñas</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+        <nav class="navbar navbar-inverse navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand fs-1 lato-regular-italic" href="../index.html">
+                    <img src="../img/logo.png" alt="" width="100" height="100" class="d-inline-block ms-3 align-text-center">
+                    Sky: Niños de la Luz
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                 <img src="../img/menu-button.png" alt="Menú" width="80" height="80">
+
+                </button>
+            </div>
         </nav>
+        <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+            <div class="p-3">
+                <ul class="navbar-nav text-end text-sm-center list-group-horizontal-sm lato-regular">
+                    <li class="nav-item flex-fill"><a class="nav-link fs-4" href="reinos.html">Reinos</a></li>
+                    <li class="nav-item flex-fill"><a class="nav-link fs-4" href="reseñas.html">Reseñas</a></li>
+                    <li class="nav-item flex-fill"><a class="nav-link fs-4" href="tienda.html">Tienda</a></li>
+                    <li class="nav-item flex-fill"><a class="nav-link fs-4" href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
     <main>
         <h2 class="my-4 lato-light ribbon-gradient">Contacto</h2>

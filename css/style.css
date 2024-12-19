@@ -1,3 +1,4 @@
+/* 
 header {
     display: flex;
     justify-content: flex-end;
@@ -27,7 +28,34 @@ header h1 a:hover {
 header img {
     width: 100px;
     height: 100px;
+} 
+    
+.nav-list {
+    padding-inline-start: 0;
 }
+
+.nav-list li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 .3em;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14pt;
+    padding: .3em .6em;
+    border-radius: .3em;
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    -ms-border-radius: .3em;
+    -o-border-radius: .3em;
+}
+
+.nav-list a:hover {
+    text-shadow: #fff 0 0 .1em, #fcf4ad 0 0 .5em;
+}
+*/
 
 body {
     background-color: #31799E;
@@ -35,6 +63,41 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+.navbar, .navbar-collapse {
+    background-color: rgba(49, 121, 158, 0.6);
+    margin: .5em;
+    border-radius: 2vw;
+    -webkit-border-radius: 2vw;
+    -moz-border-radius: 2vw;
+    -ms-border-radius: 2vw;
+    -o-border-radius: 2vw;
+}
+
+.navbar-nav a {
+    color: #fff;
+}
+
+.navbar-nav a:hover {
+    color: #fff;
+    text-shadow: #fff 0 0 .1em, #fcf4ad 0 0 .5em;
+}
+
+.navbar-brand:hover {
+    filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
+    -webkit-filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
+}
+
+.navbar-toggler, .navbar-toggler:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:hover {
+    box-shadow: none;
+    filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
+    -webkit-filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
 }
 
 footer {
@@ -129,32 +192,6 @@ input[type=(text, email)], select, textarea{
     text-align: center;
     background: linear-gradient(to right, transparent 0%, #31799e 25%, #31799E 75%, transparent 100%);
     color: #fcf4ad;
-}
-
-.nav-list {
-    padding-inline-start: 0;
-}
-
-.nav-list li {
-    list-style: none;
-    display: inline-block;
-    padding: 0 .3em;
-}
-
-.nav-list a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 14pt;
-    padding: .3em .6em;
-    border-radius: .3em;
-    -webkit-border-radius: .3em;
-    -moz-border-radius: .3em;
-    -ms-border-radius: .3em;
-    -o-border-radius: .3em;
-}
-
-.nav-list a:hover {
-    text-shadow: #fff 0 0 .1em, #fcf4ad 0 0 .5em;
 }
 
 .contenedor-iframe-16-9 {
@@ -410,16 +447,21 @@ input[type=(text, email)], select, textarea{
     padding: 15px;
 }
 
-button {
+.boton {
     background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 0.5rem;
     padding: 10px 15px;
     cursor: pointer;
     margin: 5px;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
 }
 
-button:hover {
+.boton:hover {
     background-color: #45a049;
 }
 
@@ -470,9 +512,9 @@ button:hover {
 }
 
 @media only screen and (min-width:801px) and (max-width: 880px) {
-    header {
+    /* header {
         flex-direction: column;
-    }
+    } */
 
     header h1 {
         margin-left: auto;
@@ -493,12 +535,19 @@ button:hover {
 }
 
 @media only screen and (max-width: 800px) {
-    header {
+ /*    header {
         flex-direction: column;
     }
 
     header h1 {
         margin-left: auto;
+    } */
+
+    .navbar-toggler:focus {
+        border: nonee;
+        box-shadow: none;
+        filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
+        -webkit-filter: drop-shadow(0 0 1rem #fcf4ad) drop-shadow(0 0 .5rem #fff);
     }
 
     .col-25, .col-75, input[type=submit] {

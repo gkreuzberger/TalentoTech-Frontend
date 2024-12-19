@@ -309,7 +309,7 @@ function renderizarTienda() {
         <img src="../img/icono-${productoID}.png" height="80px" width="80px" alt="${productoNombre}">
         <span>${productoNombre} - $${productoPrecio}</span>
         <span>Stock: <span id="stock-${productoID}">${productoStock}</span></span>
-        <button onclick="agregarAlCarrito('${productoNombre}', ${productoStock}, '${productoID}')">Agregar</button>
+        <button class="boton" onclick="agregarAlCarrito('${productoNombre}', ${productoStock}, '${productoID}')">Agregar</button>
         `;
 
         // Renderizar producto
