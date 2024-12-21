@@ -9,26 +9,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e177dc3a64.js" crossorigin="anonymous"></script>
     <title>Contacto | Sky: Niños de la Luz</title>
 </head>
 <body class="mx-2 my-2">
     <header>
         <nav class="navbar navbar-inverse navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-1 lato-regular-italic" href="../index.html">
-                    <img src="../img/logo.png" alt="" width="100" height="100" class="d-inline-block ms-3 align-text-center">
+            <div class="container-fluid d-flex flex-column flex-sm-row">
+                <a class="navbar-brand d-flex flex-column flex-sm-row align-items-center fs-1 lato-regular-italic backlight" href="../index.html">
+                    <img src="../img/logo.png" alt="" width="100" height="100" class="d-inline-block mx-auto ms-sm-3 align-text-center">
                     Sky: Niños de la Luz
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                 <img src="../img/menu-button.png" alt="Menú" width="80" height="80">
-
+                <button class="navbar-toggler mx-auto mx-sm-0 backlight" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="../img/menu-button.png" alt="Menú" width="80" height="80">
                 </button>
             </div>
         </nav>
         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
             <div class="p-3">
-                <ul class="navbar-nav text-end text-sm-center list-group-horizontal-sm lato-regular">
+                <ul class="navbar-nav text-center list-group-horizontal-sm lato-regular">
                     <li class="nav-item flex-fill"><a class="nav-link fs-4" href="reinos.html">Reinos</a></li>
                     <li class="nav-item flex-fill"><a class="nav-link fs-4" href="reseñas.html">Reseñas</a></li>
                     <li class="nav-item flex-fill"><a class="nav-link fs-4" href="tienda.html">Tienda</a></li>
@@ -41,33 +40,33 @@
         <h2 class="my-4 lato-light ribbon-gradient">Contacto</h2>
         <div class="contenedor-form">
             <form action="https://formspree.io/f/xnnqqjav" method="POST">
-                <fieldset class="lato-light">
-                    <div class="row">
-                        <div class="col25">
-                            <label for="nombre">Nombre:</label>
+                <fieldset class="px-3 lato-light">
+                    <div class="my-3">
+                        <div>
+                            <label for="nombre" class="form-label">Nombre:</label>
                         </div>
-                        <div class="col75">
-                            <input type="text" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25">
-                            <label for="email">Correo Electrónico:</label>
-                        </div>
-                        <div class="col75">
-                            <input type="email" name="email" id="email" placeholder="Ingresá tu dirección de mail" required>
+                        <div>
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresá tu nombre" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col25">
-                            <label for="mensaje">Mensaje:</label>
+                    <div class="mb-3">
+                        <div>
+                            <label for="email" class="form-label">Correo Electrónico:</label>
                         </div>
-                        <div class="col75">
-                            <textarea name="mensaje" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
+                        <div>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Ingresá tu dirección de mail" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <button onclick="validarFormulario()" type="submit">Enviar</button>
+                    <div class="mb-3">
+                        <div>
+                            <label for="mensaje" class="form-label">Mensaje:</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea name="mensaje" class="form-control" id="mensaje" rows="4" cols="50" placeholder="Escribí tu mensaje" maxlength="180" required></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <button class="boton" onclick="validarFormulario()" type="submit">Enviar</button>
                     </div>
                 </fieldset>
             </form>
@@ -75,6 +74,52 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="../js/script.js"></script>
     </main>
-    <footer>&copy; 2024 Gastón Kreuzberger (<a href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados</footer>
+    <footer class="pt-2">
+        <div class="d-flex flex-row flex-wrap flex-fill my-2 justify-content-center">
+            <abbr title="Sitio Web">
+                <a href="https://thatskygame.com/" target="_blank">
+                    <i class="fa-brands fa-edge-legacy fa-2x px-3 py-1 footer-link backlight"  alt="Sitio Web"></i>
+                </a>
+            </abbr>
+            <abbr title="Facebook">
+                <a href="https://www.facebook.com/thatskygame/" target="_blank">
+                    <i class="fa-brands fa-facebook fa-2x px-3 py-1 footer-link backlight" alt="Facebook"></i>
+                </a>
+            </abbr>
+            <abbr title="Instagram">
+                <a href="https://www.instagram.com/thatskygame/" target="_blank">
+                    <i class="fa-brands fa-instagram fa-2x px-3 py-1 footer-link backlight" alt="Instagram"></i>
+                </a>
+            </abbr>
+            <abbr title="YouTube">
+                <a href="https://www.youtube.com/@thatgamecompany" target="_blank">
+                    <i class="fa-brands fa-youtube fa-2x px-3 py-1 footer-link backlight" alt="Youtube"></i>
+                </a>
+            </abbr>
+            <abbr title="Twitter">
+                <a href="https://twitter.com/thatskygame" target="_blank">
+                    <i class="fa-brands fa-twitter fa-2x px-3 py-1 footer-link backlight" alt="Twitter"></i>
+                </a>
+            </abbr>
+            <abbr title="Discord">
+                <a href="https://discordapp.com/invite/thatskygame" target="_blank">
+                    <i class="fa-brands fa-discord fa-2x px-3 py-1 footer-link backlight" alt="Discord"></i>
+                </a>
+            </abbr>
+            <abbr title="Twitch">
+                <a href="https://www.twitch.tv/thatskygame/" target="_blank">
+                    <i class="fa-brands fa-twitch fa-2x px-3 py-1 footer-link backlight" alt="Twitch"></i>
+                </a>
+            </abbr>
+            <abbr title="TikTok">
+                <a href="https://www.tiktok.com/@thatskygame/" target="_blank">
+                    <i class="fa-brands fa-tiktok fa-2x px-3 py-1 footer-link backlight" alt="TikTok"></i>
+                </a>
+            </abbr>
+        </div>
+        <div class="mx-1 text-center footer-derechos">
+            &copy; 2024 Gastón Kreuzberger (<a class="backlight" href="mailto:gkreuzberger@fi.uba.ar">gkreuzberger@fi.uba.ar</a>). Todos los derechos reservados
+        </div>
+    </footer>
 </body>
 </html>

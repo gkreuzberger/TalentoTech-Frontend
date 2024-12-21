@@ -1,78 +1,93 @@
-   // Configuración de productos con stock y descuentos
-   const productos = {
+// Configuración de productos con stock y descuentos
+const productos = {
     atuendo: { 
         nombre: 'Atuendo: Básico', 
+        descripcion: '',
         precio: 5, 
         stock: 10,
         descuento: 0.25  // 25% de descuento
     },
     zapatos: { 
-        nombre: 'Zapatos: Básicos', 
+        nombre: 'Zapatos: Básicos',
+        descripcion: '',
         precio: 3, 
         stock: 15,
         descuento: 0.15  // 15% de descuento
     },
     mascara: { 
-        nombre: 'Máscara: Neutral', 
+        nombre: 'Máscara: Neutral',
+        descripcion: '',
         precio: 1.5, 
         stock: 12,
         descuento: 0  // Sin descuento
     },
     lentes: {
         nombre: 'Lentes de Sol',
+        descripcion: '',
         precio: 1.25,
         stock: 15,
         descuento: 0.1,
     },
     collar: {
         nombre: 'Collar: Moño',
+        descripcion: '',
         precio: 1.15,
         stock: 10,
         descuento: 0,
     },
     peinado: {
         nombre: 'Peinado: Trenza Lateral',
+        descripcion: '',
         precio: 2,
         stock: 8,
         descuento: 0.2,
     },
     sombrero: {
         nombre: 'Sombrero',
+        descripcion: '',
         precio: 2.5,
         stock: 13,
         descuento: 0.2,
     },
     vincha: {
         nombre: 'Vincha: Cuernitos',
+        descripcion: '',
         precio: 1.15,
         stock: 12,
         descuento: 0,
     },
     capa: {
         nombre: 'Capa: Básica',
+        descripcion: '',
         precio: 3.5,
         stock: 20,
         descuento: 0.15,
     },
     instrumento: {
         nombre: 'Instrumento: Lira',
+        descripcion: '',
         precio: 4,
         stock: 14,
         descuento: 0.35,
     },
     biblioteca: {
         nombre: 'Mueble: Biblioteca',
+        descripcion: '',
         precio: 5,
         stock: 11,
         descuento: 0.3,
     },
     taza: {
         nombre: 'Taza de Porcelana',
+        descripcion: '',
         precio: 1.5,
         stock: 13,
         descuento: 0,
     }
 };
+
+// Lista de claves de producto
+const clavesProducto = Object.keys(productos);
 
 // Constante para el IVA
 const IVA = 0.21;  // 21% de IVA
@@ -145,6 +160,7 @@ function renderizarCarrito() {
         
         // Botón para eliminar producto
         const botonEliminar = document.createElement('button');
+        botonEliminar.classList.add('boton');
         botonEliminar.textContent = 'Eliminar';
         botonEliminar.onclick = () => eliminarDelCarrito(index);
         
@@ -260,7 +276,6 @@ function actualizarStock() {
         const clave = item;
         const stockActualizado = parseInt(document.getElementById(`stock-${clave}`).textContent);
         if(stockActualizado !== parseInt(catalogoActualizado[clave]['stock'])) {
-            console.log(`Stock de ${clave} actualizado: ${stockActualizado} unidades.`);
             catalogoActualizado[clave]['stock'] = stockActualizado;
         };
         
@@ -277,9 +292,10 @@ function cerrarCheckout() {
 
 // Revisar si la lista de productos existe en LocalStorage. Si no existe se 
 // copia la lista de productos definida en el script
-function comprobarCatalogo() {
+async function comprobarCatalogo() {
     if(localStorage.getItem('catalogo') == null) {
         localStorage.setItem('catalogo', JSON.stringify(productos));
+        await actualizarDescripciones();
     };
     renderizarTienda();
 }
@@ -290,26 +306,40 @@ function renderizarTienda() {
     const contenedorTienda = document.getElementById('productos');
     const catalogo = JSON.parse(localStorage.getItem('catalogo'));
     const listaProductos = Object.values(catalogo); // Lista iterable de productos
-    const clavesProducto = Object.keys(catalogo); // Lista de claves de producto
 
     // Generar cada producto a partir de las listas creadas
     listaProductos.forEach((producto, index) => {
         const productoID = clavesProducto[index];
         const productoNombre = producto.nombre;
+        const productoDescripcion = producto.descripcion;
         const productoStock = producto.stock;
         const productoPrecio = producto.precio;
 
-        // Crear div para el producto
+        // Crear div para mostrar las tarjetas de producto
         const divProducto = document.createElement('div');
-        divProducto.setAttribute('class', 'p-2 producto');
+        divProducto.setAttribute('class', 'col');
 
-        // Crear contenido del div, se tiene que editar para que se ajuste al 
-        // estilo de la página
+        // Crear tarjeta de producto con el contenido recuperado del catálogo
         divProducto.innerHTML = `
-        <img src="../img/icono-${productoID}.png" height="80px" width="80px" alt="${productoNombre}">
-        <span>${productoNombre} - $${productoPrecio}</span>
-        <span>Stock: <span id="stock-${productoID}">${productoStock}</span></span>
-        <button class="boton" onclick="agregarAlCarrito('${productoNombre}', ${productoStock}, '${productoID}')">Agregar</button>
+        <div class="card h-100 text-center p-2 producto">
+            <img src="../img/icono-${productoID}.png" alt="${productoNombre}" class="card-img-top">
+            <div class="card-body">
+                <h3 class="card-title">${productoNombre}</h3>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#${productoID}-colapsable" aria-expanded="false" aria-controls="collapseExample">
+                    Descripción
+                </button>
+                <div class="collapse" id="${productoID}-colapsable">
+                    <div class="card-body" id="${productoID}-descripcion">
+                        ${productoDescripcion}
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Precio: $${productoPrecio}</li>
+                    <li class="list-group-item">Stock: <span id="stock-${productoID}">${productoStock}</span></li>
+                </ul>
+                <button class="boton" onclick="agregarAlCarrito('${productoNombre}', ${productoStock}, '${productoID}')">Agregar</button>
+            </div>
+        </div>
         `;
 
         // Renderizar producto
@@ -319,9 +349,39 @@ function renderizarTienda() {
     finalizarCarga()
 }
 
+// Ocultar spinner al completar la carga del contenido de la tienda
 function finalizarCarga() {
     const spinner = document.getElementById('spinner-tienda');
+    const listaTienda = document.getElementById('productos');
     spinner.classList.add('d-none');
+    listaTienda.classList.remove('d-none');
+}
+
+// Recuperar texto usando la función Fetch y guardarlo como descripción de 
+// productos en el catálogo
+
+async function actualizarDescripciones() {
+    let indice = 1;
+
+    for (const item of clavesProducto) {
+        const clave = item;
+        const json = await this.recuperarContenido(clave, indice);
+        const catalogo = JSON.parse(localStorage.getItem('catalogo'));
+        const descripcion = json.body.replace(/\r?\n/g, " ");
+        catalogo[clave]['descripcion'] = descripcion;
+        localStorage.setItem('catalogo', JSON.stringify(catalogo));
+        indice++;
+    };
+}
+
+async function recuperarContenido(productoID, indice) {
+    let url = 'https://jsonplaceholder.typicode.com';
+    let query = 'posts';
+    return await fetch(`${url}/${query}/${indice}`)
+    .then(respuesta => respuesta.json())
+    .then(json => {
+        return json;
+    });
 }
 
 // Verificador del formulario de contacto
@@ -336,6 +396,8 @@ function validarFormulario() {
     if(camposFaltantes.length > 0) {
         // Muestra una alerta con los campos faltantes
         alert('Faltan completar los siguientes campos:\n' + camposFaltantes.map(etiqueta => `· ${etiqueta}`).join('\n'))
+    } else {
+        console.log("Los campos del formulario están completos.")
     }
 }
 
